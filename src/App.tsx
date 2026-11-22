@@ -10,6 +10,7 @@ import {
   experience,
   profile,
   skillGroups,
+  tickerItems,
   workHighlights,
 } from './data'
 import './index.css'
@@ -30,7 +31,7 @@ function useReveal<T extends HTMLElement>() {
           }
         }
       },
-      { threshold: 0.16, rootMargin: '0px 0px -6% 0px' },
+      { threshold: 0.14, rootMargin: '0px 0px -5% 0px' },
     )
 
     observer.observe(node)
@@ -74,14 +75,18 @@ function WorkItem({
   index: number
 }) {
   const ref = useReveal<HTMLElement>()
+  const number = String(index + 1).padStart(2, '0')
 
   return (
     <article
       className="work-item"
       ref={ref}
-      style={{ transitionDelay: `${index * 80}ms` }}
+      style={{ transitionDelay: `${index * 90}ms` }}
     >
       <div className="work-meta">
+        <span className="work-index" aria-hidden="true">
+          {number}
+        </span>
         <p className="work-kind">{item.kind}</p>
         <h3 className="work-title">{item.title}</h3>
         <p className="work-timing">{item.timing}</p>
@@ -111,6 +116,22 @@ function WorkItem({
   )
 }
 
+function Ticker() {
+  const loop = [...tickerItems, ...tickerItems]
+  return (
+    <div className="ticker" aria-hidden="true">
+      <div className="ticker-track">
+        {loop.map((item, index) => (
+          <span className="ticker-item" key={`${item}-${index}`}>
+            <span className="ticker-dot" />
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   const glowRef = useRef<HTMLDivElement | null>(null)
@@ -130,8 +151,8 @@ export default function App() {
     if (!glow) return
 
     let frame = 0
-    let targetX = window.innerWidth * 0.7
-    let targetY = window.innerHeight * 0.25
+    let targetX = window.innerWidth * 0.72
+    let targetY = window.innerHeight * 0.22
     let x = targetX
     let y = targetY
 
@@ -144,8 +165,8 @@ export default function App() {
     const onLeave = () => glow.classList.remove('is-active')
 
     const tick = () => {
-      x += (targetX - x) * 0.08
-      y += (targetY - y) * 0.08
+      x += (targetX - x) * 0.1
+      y += (targetY - y) * 0.1
       glow.style.transform = `translate3d(${x}px, ${y}px, 0)`
       frame = requestAnimationFrame(tick)
     }
@@ -164,6 +185,7 @@ export default function App() {
   return (
     <>
       <div className="pointer-glow" ref={glowRef} aria-hidden="true" />
+      <div className="page-stripes" aria-hidden="true" />
 
       <a className="skip-link" href="#work">
         Skip to work
@@ -171,6 +193,7 @@ export default function App() {
 
       <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
         <a className="brand-mark" href="#top">
+          <span className="brand-mark-dot" aria-hidden="true" />
           DPP
         </a>
         <nav aria-label="Primary">
@@ -204,13 +227,19 @@ export default function App() {
             <div className="orb orb-a" />
             <div className="orb orb-b" />
             <div className="orb orb-c" />
+            <div className="hero-slash" />
           </div>
           <div className="hero-inner">
-            <p className="hero-kicker">{profile.location}</p>
+            <p className="hero-kicker">
+              <span className="hero-kicker-chip">{profile.location}</span>
+              <span className="hero-kicker-chip hero-kicker-chip-alt">
+                Open to full time roles
+              </span>
+            </p>
             <h1 className="hero-name">
-              <span style={{ animationDelay: '0.18s' }}>Dylan</span>
-              <span style={{ animationDelay: '0.28s' }}>Pacitto</span>
-              <span style={{ animationDelay: '0.38s' }}>Potapczuk</span>
+              <span style={{ animationDelay: '0.12s' }}>Dylan</span>
+              <span style={{ animationDelay: '0.24s' }}>Pacitto</span>
+              <span style={{ animationDelay: '0.36s' }}>Potapczuk</span>
             </h1>
             <p className="hero-tagline">{profile.tagline}</p>
             <p className="hero-degrees">
@@ -222,7 +251,8 @@ export default function App() {
             </p>
             <div className="cta-row">
               <a className="button button-primary" href="#work">
-                View work
+                <span>View work</span>
+                <span className="button-shine" aria-hidden="true" />
               </a>
               <a
                 className="button button-ghost"
@@ -238,10 +268,17 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="work">
+        <Ticker />
+
+        <section className="section section-work" id="work">
           <div className="section-inner">
             <Reveal className="section-head">
-              <p className="section-label">Selected work</p>
+              <div className="section-eyebrow">
+                <span className="section-index" aria-hidden="true">
+                  01
+                </span>
+                <p className="section-label">Selected work</p>
+              </div>
               <h2 className="section-title">
                 Products and systems that move operations forward
               </h2>
@@ -258,10 +295,15 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="experience">
+        <section className="section section-experience" id="experience">
           <div className="section-inner">
             <Reveal className="section-head">
-              <p className="section-label">Experience</p>
+              <div className="section-eyebrow">
+                <span className="section-index" aria-hidden="true">
+                  02
+                </span>
+                <p className="section-label">Experience</p>
+              </div>
               <h2 className="section-title">Where I have built leverage</h2>
             </Reveal>
             <div className="experience-list">
@@ -284,10 +326,15 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="skills">
+        <section className="section section-skills" id="skills">
           <div className="section-inner">
             <Reveal className="section-head">
-              <p className="section-label">Skills</p>
+              <div className="section-eyebrow">
+                <span className="section-index" aria-hidden="true">
+                  03
+                </span>
+                <p className="section-label">Skills</p>
+              </div>
               <h2 className="section-title">How I get things shipped</h2>
             </Reveal>
             <div className="skills-grid">
@@ -316,10 +363,15 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="about">
+        <section className="section section-about" id="about">
           <div className="section-inner">
             <Reveal className="section-head">
-              <p className="section-label">About</p>
+              <div className="section-eyebrow">
+                <span className="section-index" aria-hidden="true">
+                  04
+                </span>
+                <p className="section-label">About</p>
+              </div>
               <h2 className="section-title">
                 Computer science and business, built for operators
               </h2>
@@ -339,8 +391,12 @@ export default function App() {
                 </p>
               </Reveal>
               <Reveal className="degree-list" aria-label="Education">
-                {profile.degrees.map((degree) => (
-                  <div className="degree-item" key={degree.title}>
+                {profile.degrees.map((degree, index) => (
+                  <div
+                    className="degree-item"
+                    key={degree.title}
+                    style={{ transitionDelay: `${index * 80}ms` }}
+                  >
                     <h3>{degree.title}</h3>
                     <p>
                       {degree.school}
@@ -354,10 +410,15 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="contact">
+        <section className="section section-contact" id="contact">
           <div className="section-inner">
-            <Reveal className="section-head">
-              <p className="section-label">Contact</p>
+            <Reveal className="section-head section-head-contact">
+              <div className="section-eyebrow">
+                <span className="section-index" aria-hidden="true">
+                  05
+                </span>
+                <p className="section-label">Contact</p>
+              </div>
               <h2 className="section-title">Let&apos;s talk</h2>
               <p className="section-copy">
                 Reach out for roles, collaborations, or a quick intro.
@@ -365,7 +426,9 @@ export default function App() {
             </Reveal>
             <Reveal className="contact-panel">
               <div className="contact-links">
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                <a className="contact-link-primary" href={`mailto:${profile.email}`}>
+                  {profile.email}
+                </a>
                 <a href={profile.linkedin} target="_blank" rel="noreferrer">
                   LinkedIn
                 </a>

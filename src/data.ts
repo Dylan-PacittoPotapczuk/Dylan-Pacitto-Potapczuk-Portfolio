@@ -1,3 +1,14 @@
+export const tickerItems = [
+  'Product',
+  'Operations',
+  'AI systems',
+  'Forecasting',
+  'Procurement',
+  'Supply chain',
+  'Shipping wins',
+  'Kotlin Multiplatform',
+]
+
 export const profile = {
   name: 'Dylan Pacitto Potapczuk',
   location: 'Richmond Hill, ON',
