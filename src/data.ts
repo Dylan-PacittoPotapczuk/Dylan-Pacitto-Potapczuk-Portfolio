@@ -7,7 +7,7 @@ export const profile = {
   studi: 'https://github.com/Dylan-PacittoPotapczuk/Studi',
   resumeHref: `${import.meta.env.BASE_URL}resume.pdf`,
   tagline:
-    'I design and ship AI-powered operations systems — bridging product, ops, and engineering.',
+    'I design and ship operations systems powered by AI, bridging product, ops, and engineering.',
   degrees: [
     {
       title: 'Bachelor of Computer Science, Minor in Combinatorics & Optimization',
@@ -26,12 +26,12 @@ export const workHighlights = [
   {
     title: 'Studi',
     kind: 'Product · Engineering',
-    timing: 'Sep 2025 – Dec 2025',
+    timing: 'Sep 2025 to Dec 2025',
     blurb:
-      'Study-spot discovery app shipped to production. Owned roadmap, personas, and Figma/UML specs while building in Kotlin Multiplatform with a four-person team.',
+      'A study spot discovery app that made it all the way to production. I owned the roadmap, personas, and Figma/UML specs while building in Kotlin Multiplatform with a four person team.',
     points: [
-      'Community-scaled discovery via spot submission and ratings — no content team required',
-      'Shared Kotlin Multiplatform codebase with PostgreSQL/Supabase backend',
+      'Community scaled discovery through spot submission and ratings, so we never needed a content team',
+      'Shared Kotlin Multiplatform codebase with a PostgreSQL/Supabase backend',
     ],
     link: {
       label: 'View on GitHub',
@@ -39,35 +39,35 @@ export const workHighlights = [
     },
   },
   {
-    title: 'Cash-flow AI forecasting',
+    title: 'Cash flow AI forecasting',
     kind: 'Canada Rocket Company',
-    timing: '2026 – Present',
+    timing: '2026 to Present',
     blurb:
-      'Monthly cash-flow forecasts within 5% of actuals by integrating six business systems with Python, APIs, PostgreSQL, and AI agents.',
+      'Monthly cash flow forecasts landed within 5% of actuals by connecting six business systems with Python, APIs, PostgreSQL, and AI agents.',
     points: [
-      'Automated reporting that removed recurring manual data collection',
-      'Server-side jobs that keep forecasting data fresh for investors and stakeholders',
+      'Automated reporting that cleared out recurring manual data collection',
+      'Server side jobs that keep forecasting data fresh for investors and stakeholders',
     ],
   },
   {
-    title: 'Procure-to-pay automation',
+    title: 'Procure to pay automation',
     kind: 'Canada Rocket Company',
-    timing: '2026 – Present',
+    timing: '2026 to Present',
     blurb:
-      'Designed and shipped a P2P system in Python, PostgreSQL, and Docker where no formal purchasing workflow existed.',
+      'Designed and shipped a procure to pay system in Python, PostgreSQL, and Docker in a place where no formal purchasing workflow existed.',
     points: [
       'Automated purchasing, receipts, approvals, and documentation across 100+ transactions',
-      'Build-versus-buy analysis that consolidated NDAs, contracts, and PO signing into one secure document workflow',
+      'Build versus buy analysis that folded NDAs, contracts, and PO signing into one secure document workflow',
     ],
   },
   {
     title: 'Ops & shipping wins',
     kind: 'Kepler · OtO',
-    timing: '2024 – 2025',
+    timing: '2024 to 2025',
     blurb:
-      'Supply-chain and fulfillment improvements spanning satellite hardware logistics and consumer shipping.',
+      'Supply chain and fulfillment improvements spanning satellite hardware logistics and consumer shipping.',
     points: [
-      'Kepler: faster kitting and lower stockout risk across $20M+ inventory and 10 satellite builds; zero-delay U.S. shipment with controlled-goods docs',
+      'Kepler: faster kitting and lower stockout risk across $20M+ inventory and 10 satellite builds, plus a zero delay U.S. shipment with controlled goods docs',
       'OtO: 30% lower shipping cost and delivery cut from 7 to 3 days for 30% of customers via a new 3PL',
     ],
   },
@@ -77,37 +77,37 @@ export const experience = [
   {
     role: 'Strategy & Operations',
     org: 'Canada Rocket Company',
-    timing: 'Sep 2026 – Present',
+    timing: 'Sep 2026 to Present',
     summary:
-      'AI-assisted forecasting, procure-to-pay automation, and build-versus-buy decisions across Finance, IT, Operations, and HR.',
+      'Forecasting with AI assistance, procure to pay automation, and build versus buy decisions across Finance, IT, Operations, and HR.',
   },
   {
     role: 'Orientation Team Leader',
     org: 'University of Waterloo',
-    timing: 'Feb 2026 – Sep 2026',
+    timing: 'Feb 2026 to Sep 2026',
     summary:
-      'Directed a university-wide program for 7,000+ students — $100K+ budget under target, 800+ volunteers, positive NPS.',
+      'Directed a university wide program for 7,000+ students with a $100K+ budget under target, 800+ volunteers, and a positive NPS.',
   },
   {
     role: 'Infrastructure Analyst',
     org: 'Interac Corporation',
-    timing: 'Jan 2026 – Apr 2026',
+    timing: 'Jan 2026 to Apr 2026',
     summary:
-      'Release-readiness dashboards, Debit capacity expansion PM support, and data-centre wind-down modeling for leadership.',
+      'Release readiness dashboards, Debit capacity expansion PM support, and data centre wind down modeling for leadership.',
   },
   {
     role: 'Supply Chain Analyst',
     org: 'Kepler Communications Inc.',
-    timing: 'Jan 2025 – Apr 2025',
+    timing: 'Jan 2025 to Apr 2025',
     summary:
-      'NetSuite BOM and inventory discipline for satellite builds; cross-border logistics for a full satellite system shipment.',
+      'NetSuite BOM and inventory discipline for satellite builds, plus cross border logistics for a full satellite system shipment.',
   },
   {
     role: 'Operations Analyst',
     org: 'OtO Inc.',
-    timing: 'Jan 2024 – Aug 2024',
+    timing: 'Jan 2024 to Aug 2024',
     summary:
-      '3PL selection that cut cost and delivery time; QC tracking system with engineering that stayed in production use.',
+      '3PL selection that cut cost and delivery time, and a QC tracking system with engineering that stayed in production use.',
   },
 ]
 
@@ -120,7 +120,7 @@ export const skillGroups = [
       'Prioritization',
       'User research',
       'Wireframing',
-      'Build-vs-buy',
+      'Build versus buy',
     ],
   },
   {
