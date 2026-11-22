@@ -11,7 +11,6 @@ import {
   leadership,
   profile,
   skillGroups,
-  tickerItems,
   workHighlights,
 } from './data'
 import './index.css'
@@ -76,24 +75,20 @@ function WorkItem({
   index: number
 }) {
   const ref = useReveal<HTMLElement>()
-  const number = String(index + 1).padStart(2, '0')
 
   return (
     <article
-      className="work-item"
+      className="case-study"
       ref={ref}
-      style={{ transitionDelay: `${index * 90}ms` }}
+      style={{ transitionDelay: `${index * 70}ms` }}
     >
-      <div className="work-meta">
-        <span className="work-index" aria-hidden="true">
-          {number}
-        </span>
-        <p className="work-kind">{item.kind}</p>
-        <h3 className="work-title">{item.title}</h3>
-        <p className="work-timing">{item.timing}</p>
-      </div>
-      <div className="work-body">
-        <p>{item.blurb}</p>
+      <header className="case-study-header">
+        <p className="case-study-kind">{item.kind}</p>
+        <h3 className="case-study-title">{item.title}</h3>
+        <p className="case-study-timing">{item.timing}</p>
+      </header>
+      <div className="case-study-body">
+        <p className="case-study-lede">{item.blurb}</p>
         <ul>
           {item.points.map((point) => (
             <li key={point}>{point}</li>
@@ -101,35 +96,17 @@ function WorkItem({
         </ul>
         {item.link ? (
           <a
-            className="work-link"
+            className="case-study-link"
             href={item.link.href}
             target="_blank"
             rel="noreferrer"
           >
             {item.link.label}
-            <span className="work-link-arrow" aria-hidden="true">
-              →
-            </span>
+            <span aria-hidden="true"> →</span>
           </a>
         ) : null}
       </div>
     </article>
-  )
-}
-
-function Ticker() {
-  const loop = [...tickerItems, ...tickerItems]
-  return (
-    <div className="ticker" aria-hidden="true">
-      <div className="ticker-track">
-        {loop.map((item, index) => (
-          <span className="ticker-item" key={`${item}-${index}`}>
-            <span className="ticker-dot" />
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
   )
 }
 
@@ -152,8 +129,8 @@ export default function App() {
     if (!glow) return
 
     let frame = 0
-    let targetX = window.innerWidth * 0.72
-    let targetY = window.innerHeight * 0.22
+    let targetX = window.innerWidth * 0.7
+    let targetY = window.innerHeight * 0.25
     let x = targetX
     let y = targetY
 
@@ -166,8 +143,8 @@ export default function App() {
     const onLeave = () => glow.classList.remove('is-active')
 
     const tick = () => {
-      x += (targetX - x) * 0.1
-      y += (targetY - y) * 0.1
+      x += (targetX - x) * 0.08
+      y += (targetY - y) * 0.08
       glow.style.transform = `translate3d(${x}px, ${y}px, 0)`
       frame = requestAnimationFrame(tick)
     }
@@ -186,7 +163,6 @@ export default function App() {
   return (
     <>
       <div className="pointer-glow" ref={glowRef} aria-hidden="true" />
-      <div className="page-stripes" aria-hidden="true" />
 
       <a className="skip-link" href="#work">
         Skip to work
@@ -194,7 +170,6 @@ export default function App() {
 
       <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
         <a className="brand-mark" href="#top">
-          <span className="brand-mark-dot" aria-hidden="true" />
           DPP
         </a>
         <nav aria-label="Primary">
@@ -227,24 +202,16 @@ export default function App() {
       <main id="top">
         <section className="hero" aria-label="Introduction">
           <div className="hero-atmosphere" aria-hidden="true">
-            <div className="hero-grid" />
             <div className="orb orb-a" />
             <div className="orb orb-b" />
-            <div className="orb orb-c" />
-            <div className="hero-slash" />
           </div>
           <div className="hero-inner">
-            <p className="hero-kicker">
-              <span className="hero-kicker-chip">{profile.location}</span>
-              <span className="hero-kicker-chip hero-kicker-chip-alt">
-                Open to full time roles
-              </span>
-            </p>
             <h1 className="hero-name">
-              <span style={{ animationDelay: '0.12s' }}>Dylan</span>
-              <span style={{ animationDelay: '0.24s' }}>Pacitto</span>
-              <span style={{ animationDelay: '0.36s' }}>Potapczuk</span>
+              <span style={{ animationDelay: '0.08s' }}>Dylan</span>
+              <span style={{ animationDelay: '0.18s' }}>Pacitto</span>
+              <span style={{ animationDelay: '0.28s' }}>Potapczuk</span>
             </h1>
+            <p className="hero-location">{profile.location}</p>
             <p className="hero-tagline">{profile.tagline}</p>
             <p className="hero-degrees">
               <strong>Bachelor of Computer Science</strong>, Minor in
@@ -255,8 +222,7 @@ export default function App() {
             </p>
             <div className="cta-row">
               <a className="button button-primary" href="#work">
-                <span>View work</span>
-                <span className="button-shine" aria-hidden="true" />
+                View work
               </a>
               <a
                 className="button button-ghost"
@@ -272,26 +238,19 @@ export default function App() {
           </div>
         </section>
 
-        <Ticker />
-
         <section className="section section-work" id="work">
-          <div className="section-inner">
+          <div className="section-inner section-inner-narrow">
             <Reveal className="section-head">
-              <div className="section-eyebrow">
-                <span className="section-index" aria-hidden="true">
-                  01
-                </span>
-                <p className="section-label">Selected work</p>
-              </div>
+              <p className="section-label">Selected work</p>
               <h2 className="section-title">
                 Products and systems that move operations forward
               </h2>
               <p className="section-copy">
-                A featured build plus case highlights from forecasting,
-                procurement, and supply chain work.
+                Case studies from product, forecasting, procurement, and supply
+                chain work.
               </p>
             </Reveal>
-            <div className="work-list">
+            <div className="case-study-stack">
               {workHighlights.map((item, index) => (
                 <WorkItem key={item.title} item={item} index={index} />
               ))}
@@ -300,14 +259,9 @@ export default function App() {
         </section>
 
         <section className="section section-leadership" id="leadership">
-          <div className="section-inner">
+          <div className="section-inner section-inner-narrow">
             <Reveal className="section-head">
-              <div className="section-eyebrow">
-                <span className="section-index" aria-hidden="true">
-                  02
-                </span>
-                <p className="section-label">Leadership</p>
-              </div>
+              <p className="section-label">Leadership</p>
               <h2 className="section-title">
                 Running Orientation at university scale
               </h2>
@@ -337,14 +291,9 @@ export default function App() {
         </section>
 
         <section className="section section-experience" id="experience">
-          <div className="section-inner">
+          <div className="section-inner section-inner-narrow">
             <Reveal className="section-head">
-              <div className="section-eyebrow">
-                <span className="section-index" aria-hidden="true">
-                  03
-                </span>
-                <p className="section-label">Experience</p>
-              </div>
+              <p className="section-label">Experience</p>
               <h2 className="section-title">Where I have built leverage</h2>
             </Reveal>
             <div className="experience-list">
@@ -353,7 +302,7 @@ export default function App() {
                   as="article"
                   className={`experience-item${job.featured ? ' is-featured' : ''}`}
                   key={`${job.org}:${job.role}`}
-                  style={{ transitionDelay: `${index * 70}ms` }}
+                  style={{ transitionDelay: `${index * 60}ms` }}
                 >
                   <p className="experience-timing">{job.timing}</p>
                   <div>
@@ -371,14 +320,9 @@ export default function App() {
         </section>
 
         <section className="section section-skills" id="skills">
-          <div className="section-inner">
+          <div className="section-inner section-inner-narrow">
             <Reveal className="section-head">
-              <div className="section-eyebrow">
-                <span className="section-index" aria-hidden="true">
-                  04
-                </span>
-                <p className="section-label">Skills</p>
-              </div>
+              <p className="section-label">Skills</p>
               <h2 className="section-title">How I get things shipped</h2>
             </Reveal>
             <div className="skills-grid">
@@ -386,19 +330,12 @@ export default function App() {
                 <Reveal
                   className="skill-group"
                   key={group.label}
-                  style={{ transitionDelay: `${groupIndex * 90}ms` }}
+                  style={{ transitionDelay: `${groupIndex * 80}ms` }}
                 >
                   <h3>{group.label}</h3>
                   <ul>
-                    {group.items.map((skill, skillIndex) => (
-                      <li
-                        key={skill}
-                        style={{
-                          transitionDelay: `${groupIndex * 90 + skillIndex * 35}ms`,
-                        }}
-                      >
-                        {skill}
-                      </li>
+                    {group.items.map((skill) => (
+                      <li key={skill}>{skill}</li>
                     ))}
                   </ul>
                 </Reveal>
@@ -408,14 +345,9 @@ export default function App() {
         </section>
 
         <section className="section section-about" id="about">
-          <div className="section-inner">
+          <div className="section-inner section-inner-narrow">
             <Reveal className="section-head">
-              <div className="section-eyebrow">
-                <span className="section-index" aria-hidden="true">
-                  05
-                </span>
-                <p className="section-label">About</p>
-              </div>
+              <p className="section-label">About</p>
               <h2 className="section-title">
                 Computer science and business, built for operators
               </h2>
@@ -435,12 +367,8 @@ export default function App() {
                 </p>
               </Reveal>
               <Reveal className="degree-list" aria-label="Education">
-                {profile.degrees.map((degree, index) => (
-                  <div
-                    className="degree-item"
-                    key={degree.title}
-                    style={{ transitionDelay: `${index * 80}ms` }}
-                  >
+                {profile.degrees.map((degree) => (
+                  <div className="degree-item" key={degree.title}>
                     <h3>{degree.title}</h3>
                     <p>
                       {degree.school}
@@ -455,14 +383,9 @@ export default function App() {
         </section>
 
         <section className="section section-contact" id="contact">
-          <div className="section-inner">
-            <Reveal className="section-head section-head-contact">
-              <div className="section-eyebrow">
-                <span className="section-index" aria-hidden="true">
-                  06
-                </span>
-                <p className="section-label">Contact</p>
-              </div>
+          <div className="section-inner section-inner-narrow">
+            <Reveal className="section-head">
+              <p className="section-label">Contact</p>
               <h2 className="section-title">Let&apos;s talk</h2>
               <p className="section-copy">
                 Reach out for roles, collaborations, or a quick intro.
@@ -489,7 +412,7 @@ export default function App() {
       </main>
 
       <footer className="site-footer">
-        <div className="section-inner">
+        <div className="section-inner section-inner-narrow">
           <span>
             © {new Date().getFullYear()} {profile.name}
           </span>
