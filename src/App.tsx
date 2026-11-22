@@ -207,11 +207,13 @@ export default function App() {
           </div>
           <div className="hero-inner">
             <h1 className="hero-name">
-              <span style={{ animationDelay: '0.08s' }}>Dylan</span>
-              <span style={{ animationDelay: '0.18s' }}>Pacitto</span>
-              <span style={{ animationDelay: '0.28s' }}>Potapczuk</span>
+              <span style={{ animationDelay: '0.06s' }}>Dylan</span>
+              <span style={{ animationDelay: '0.14s' }}>Pacitto</span>
+              <span style={{ animationDelay: '0.22s' }}>Potapczuk</span>
             </h1>
-            <p className="hero-location">{profile.location}</p>
+            <p className="hero-location">
+              {profile.location} · Open to full time roles
+            </p>
             <p className="hero-tagline">{profile.tagline}</p>
             <p className="hero-degrees">
               <strong>Bachelor of Computer Science</strong>, Minor in
