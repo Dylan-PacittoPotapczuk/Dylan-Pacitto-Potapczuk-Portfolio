@@ -223,7 +223,7 @@ export default function App() {
               <span style={{ animationDelay: '0.22s' }}>Potapczuk</span>
             </h1>
             <p className="hero-location">
-              {profile.location} · Open to full time roles
+              {profile.location} · {profile.roleTarget}
             </p>
             <p className="hero-tagline">{profile.tagline}</p>
             <p className="hero-degrees">
@@ -368,15 +368,17 @@ export default function App() {
             <div className="about-grid">
               <Reveal className="about-copy">
                 <p>
-                  I am a dual degree student looking for full time roles where
-                  product sense, systems thinking, and hands on engineering meet.
-                  I like turning messy operational problems into tools people
-                  actually use: forecasts that land close to actuals, purchasing
-                  workflows that stick, and shipping that gets faster.
+                  I am a dual degree student focused on product ops and technical
+                  product roles where product sense, systems thinking, and hands
+                  on engineering meet. I like turning messy operational problems
+                  into tools people actually use: forecasts that land close to
+                  actuals, purchasing workflows that stick, and shipping that
+                  gets faster.
                 </p>
                 <p>
-                  Based in {profile.location}. Open to product, strategy and
-                  operations, and technical analyst roles.
+                  Based in {profile.location}. I am also open to strategy and
+                  operations and technical analyst paths when the work sits close
+                  to product systems.
                 </p>
               </Reveal>
               <Reveal className="degree-list" aria-label="Education">

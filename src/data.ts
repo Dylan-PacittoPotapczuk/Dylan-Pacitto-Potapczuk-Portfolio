@@ -1,6 +1,7 @@
 export const profile = {
   name: 'Dylan Pacitto Potapczuk',
   location: 'Richmond Hill, ON',
+  roleTarget: 'Seeking product ops and technical product roles',
   email: 'dylan.pacitto@gmail.com',
   linkedin: 'https://www.linkedin.com/in/dylan-pacitto-potapczuk',
   github: 'https://github.com/Dylan-PacittoPotapczuk',
@@ -48,14 +49,15 @@ export const workHighlights = [
     image: `${import.meta.env.BASE_URL}images/work-studi.jpg`,
     imageAlt: 'Abstract violet study space illustration',
     blurb:
-      'A study spot discovery app that made it all the way to production. I owned the roadmap, personas, and Figma/UML specs while building in Kotlin Multiplatform with a four person team.',
+      'A study spot discovery app that made it all the way to production. I owned the roadmap, personas, and Figma/UML specs while coding with three engineers on a Kotlin Multiplatform stack.',
     points: [
+      'Implemented spot creation, ratings, and real time location features spanning data modeling, Supabase API integration, and Compose UI',
       'Community scaled discovery through spot submission and ratings, so we never needed a content team',
-      'Shared Kotlin Multiplatform codebase with a PostgreSQL/Supabase backend',
+      'Shared Kotlin Multiplatform codebase with a PostgreSQL/Supabase backend for Android and desktop',
     ],
     link: {
-      label: 'View on GitHub',
-      href: 'https://github.com/Dylan-PacittoPotapczuk/Studi',
+      label: 'View composeApp on GitHub',
+      href: 'https://github.com/Dylan-PacittoPotapczuk/Studi/tree/main/composeApp',
     },
   },
   {
@@ -68,7 +70,7 @@ export const workHighlights = [
       'Monthly cash flow forecasts landed within 5% of actuals by connecting six business systems with Python, APIs, PostgreSQL, and AI agents.',
     points: [
       'Automated reporting that cleared out recurring manual data collection',
-      'Server side jobs that keep forecasting data fresh for investors and stakeholders',
+      'Server side jobs that keep forecasting data fresh for finance leadership and stakeholders',
     ],
   },
   {
@@ -121,7 +123,7 @@ export const experience = [
     org: 'Interac Corporation',
     timing: 'Jan 2026 to Apr 2026',
     summary:
-      'Release readiness dashboards, Debit capacity expansion PM support, and data centre wind down modeling for leadership.',
+      'Replaced manual release readiness checks with JIRA dashboards for Infrastructure and Platform Management, automated workflow tracking so blockers surfaced faster, and supported Debit capacity expansion plus data centre wind down modeling.',
     featured: false,
   },
   {
@@ -155,28 +157,31 @@ export const skillGroups = [
     ],
   },
   {
-    label: 'Delivery & analytics',
+    label: 'Engineering',
     items: [
-      'Agile / Scrum',
-      'Stakeholder management',
-      'SQL',
       'Python',
-      'Excel / Power Query',
-      'KPI tracking',
-      'Financial modeling',
+      'Kotlin',
+      'C++',
+      'SQL',
+      'Kotlin Multiplatform',
+      'Data structures and algorithms',
+      'REST APIs',
+      'PostgreSQL',
+      'Docker',
     ],
   },
   {
-    label: 'Tools & systems',
+    label: 'Delivery & tools',
     items: [
+      'Agile / Scrum',
+      'Stakeholder management',
+      'KPI tracking',
+      'Financial modeling',
       'JIRA',
       'Confluence',
       'Figma',
-      'Power BI / Tableau',
       'Git',
-      'Docker',
-      'PostgreSQL',
-      'REST APIs',
+      'Power BI / Tableau',
       'AI tooling',
     ],
   },
