@@ -8,6 +8,7 @@ import {
 } from 'react'
 import {
   experience,
+  leadership,
   profile,
   skillGroups,
   tickerItems,
@@ -202,6 +203,9 @@ export default function App() {
               <a href="#work">Work</a>
             </li>
             <li>
+              <a href="#leadership">Leadership</a>
+            </li>
+            <li>
               <a href="#experience">Experience</a>
             </li>
             <li>
@@ -295,12 +299,49 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section section-experience" id="experience">
+        <section className="section section-leadership" id="leadership">
           <div className="section-inner">
             <Reveal className="section-head">
               <div className="section-eyebrow">
                 <span className="section-index" aria-hidden="true">
                   02
+                </span>
+                <p className="section-label">Leadership</p>
+              </div>
+              <h2 className="section-title">
+                Running Orientation at university scale
+              </h2>
+              <p className="section-copy">{leadership.blurb}</p>
+            </Reveal>
+            <Reveal className="leadership-panel">
+              <div className="leadership-meta">
+                <p className="leadership-role">{leadership.role}</p>
+                <p className="leadership-org">{leadership.org}</p>
+                <p className="leadership-timing">{leadership.timing}</p>
+              </div>
+              <div className="leadership-stats" aria-label="Leadership impact">
+                {leadership.stats.map((stat) => (
+                  <div className="leadership-stat" key={stat.label}>
+                    <p className="leadership-stat-value">{stat.value}</p>
+                    <p className="leadership-stat-label">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <ul className="leadership-points">
+                {leadership.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="section section-experience" id="experience">
+          <div className="section-inner">
+            <Reveal className="section-head">
+              <div className="section-eyebrow">
+                <span className="section-index" aria-hidden="true">
+                  03
                 </span>
                 <p className="section-label">Experience</p>
               </div>
@@ -310,12 +351,15 @@ export default function App() {
               {experience.map((job, index) => (
                 <Reveal
                   as="article"
-                  className="experience-item"
+                  className={`experience-item${job.featured ? ' is-featured' : ''}`}
                   key={`${job.org}:${job.role}`}
                   style={{ transitionDelay: `${index * 70}ms` }}
                 >
                   <p className="experience-timing">{job.timing}</p>
                   <div>
+                    {job.featured ? (
+                      <p className="experience-badge">Leadership highlight</p>
+                    ) : null}
                     <h3 className="experience-role">{job.role}</h3>
                     <p className="experience-org">{job.org}</p>
                     <p className="experience-summary">{job.summary}</p>
@@ -331,7 +375,7 @@ export default function App() {
             <Reveal className="section-head">
               <div className="section-eyebrow">
                 <span className="section-index" aria-hidden="true">
-                  03
+                  04
                 </span>
                 <p className="section-label">Skills</p>
               </div>
@@ -368,7 +412,7 @@ export default function App() {
             <Reveal className="section-head">
               <div className="section-eyebrow">
                 <span className="section-index" aria-hidden="true">
-                  04
+                  05
                 </span>
                 <p className="section-label">About</p>
               </div>
@@ -415,7 +459,7 @@ export default function App() {
             <Reveal className="section-head section-head-contact">
               <div className="section-eyebrow">
                 <span className="section-index" aria-hidden="true">
-                  05
+                  06
                 </span>
                 <p className="section-label">Contact</p>
               </div>

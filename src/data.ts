@@ -1,12 +1,12 @@
 export const tickerItems = [
   'Product',
   'Operations',
+  'Leadership',
   'AI systems',
   'Forecasting',
   'Procurement',
   'Supply chain',
-  'Shipping wins',
-  'Kotlin Multiplatform',
+  'Orientation',
 ]
 
 export const profile = {
@@ -30,6 +30,24 @@ export const profile = {
       school: 'Wilfrid Laurier University',
       timing: 'Expected Aug 2027',
     },
+  ],
+}
+
+export const leadership = {
+  role: 'Orientation Team Leader',
+  org: 'University of Waterloo',
+  timing: 'Feb 2026 to Sep 2026',
+  blurb:
+    'Led a university wide Orientation program that welcomed thousands of students while keeping budget, staffing, and inclusive programming on track.',
+  stats: [
+    { value: '7,000+', label: 'students served' },
+    { value: '$100K+', label: 'budget under target' },
+    { value: '800+', label: 'volunteers coordinated' },
+  ],
+  points: [
+    'Planned and delivered five event days across six faculties with a positive NPS',
+    'Built communication and delegation frameworks so faculty leads stayed aligned on staffing, deliverables, and milestones',
+    'Kept inclusive programming front and center while managing a complex volunteer organization at scale',
   ],
 }
 
@@ -91,13 +109,15 @@ export const experience = [
     timing: 'Sep 2026 to Present',
     summary:
       'Forecasting with AI assistance, procure to pay automation, and build versus buy decisions across Finance, IT, Operations, and HR.',
+    featured: false,
   },
   {
     role: 'Orientation Team Leader',
     org: 'University of Waterloo',
     timing: 'Feb 2026 to Sep 2026',
     summary:
-      'Directed a university wide program for 7,000+ students with a $100K+ budget under target, 800+ volunteers, and a positive NPS.',
+      'Directed a university wide program for 7,000+ students with a $100K+ budget under target, 800+ volunteers, and inclusive programming across six faculties.',
+    featured: true,
   },
   {
     role: 'Infrastructure Analyst',
@@ -105,6 +125,7 @@ export const experience = [
     timing: 'Jan 2026 to Apr 2026',
     summary:
       'Release readiness dashboards, Debit capacity expansion PM support, and data centre wind down modeling for leadership.',
+    featured: false,
   },
   {
     role: 'Supply Chain Analyst',
@@ -112,6 +133,7 @@ export const experience = [
     timing: 'Jan 2025 to Apr 2025',
     summary:
       'NetSuite BOM and inventory discipline for satellite builds, plus cross border logistics for a full satellite system shipment.',
+    featured: false,
   },
   {
     role: 'Operations Analyst',
@@ -119,6 +141,7 @@ export const experience = [
     timing: 'Jan 2024 to Aug 2024',
     summary:
       '3PL selection that cut cost and delivery time, and a QC tracking system with engineering that stayed in production use.',
+    featured: false,
   },
 ]
 
