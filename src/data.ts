@@ -45,6 +45,8 @@ export const workHighlights = [
     title: 'Studi',
     kind: 'Product · Engineering',
     timing: 'Sep 2025 to Dec 2025',
+    image: `${import.meta.env.BASE_URL}images/work-studi.jpg`,
+    imageAlt: 'Abstract violet study space illustration',
     blurb:
       'A study spot discovery app that made it all the way to production. I owned the roadmap, personas, and Figma/UML specs while building in Kotlin Multiplatform with a four person team.',
     points: [
@@ -60,6 +62,8 @@ export const workHighlights = [
     title: 'Cash flow AI forecasting',
     kind: 'Canada Rocket Company',
     timing: '2026 to Present',
+    image: `${import.meta.env.BASE_URL}images/work-forecast.jpg`,
+    imageAlt: 'Abstract violet forecasting curves illustration',
     blurb:
       'Monthly cash flow forecasts landed within 5% of actuals by connecting six business systems with Python, APIs, PostgreSQL, and AI agents.',
     points: [
@@ -71,6 +75,8 @@ export const workHighlights = [
     title: 'Procure to pay automation',
     kind: 'Canada Rocket Company',
     timing: '2026 to Present',
+    image: `${import.meta.env.BASE_URL}images/work-procure.jpg`,
+    imageAlt: 'Abstract violet document workflow illustration',
     blurb:
       'Designed and shipped a procure to pay system in Python, PostgreSQL, and Docker in a place where no formal purchasing workflow existed.',
     points: [
@@ -82,6 +88,8 @@ export const workHighlights = [
     title: 'Ops & shipping wins',
     kind: 'Kepler · OtO',
     timing: '2024 to 2025',
+    image: `${import.meta.env.BASE_URL}images/work-ops.jpg`,
+    imageAlt: 'Abstract violet logistics routes illustration',
     blurb:
       'Supply chain and fulfillment improvements spanning satellite hardware logistics and consumer shipping.',
     points: [

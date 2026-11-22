@@ -82,29 +82,34 @@ function WorkItem({
       ref={ref}
       style={{ transitionDelay: `${index * 70}ms` }}
     >
-      <header className="case-study-header">
-        <p className="case-study-kind">{item.kind}</p>
-        <h3 className="case-study-title">{item.title}</h3>
-        <p className="case-study-timing">{item.timing}</p>
-      </header>
-      <div className="case-study-body">
-        <p className="case-study-lede">{item.blurb}</p>
-        <ul>
-          {item.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
-        {item.link ? (
-          <a
-            className="case-study-link"
-            href={item.link.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {item.link.label}
-            <span aria-hidden="true"> →</span>
-          </a>
-        ) : null}
+      <div className="case-study-visual">
+        <img src={item.image} alt={item.imageAlt} loading="lazy" />
+      </div>
+      <div className="case-study-content">
+        <header className="case-study-header">
+          <p className="case-study-kind">{item.kind}</p>
+          <h3 className="case-study-title">{item.title}</h3>
+          <p className="case-study-timing">{item.timing}</p>
+        </header>
+        <div className="case-study-body">
+          <p className="case-study-lede">{item.blurb}</p>
+          <ul>
+            {item.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+          {item.link ? (
+            <a
+              className="case-study-link"
+              href={item.link.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {item.link.label}
+              <span aria-hidden="true"> →</span>
+            </a>
+          ) : null}
+        </div>
       </div>
     </article>
   )
@@ -201,6 +206,12 @@ export default function App() {
 
       <main id="top">
         <section className="hero" aria-label="Introduction">
+          <div className="hero-media" aria-hidden="true">
+            <img
+              src={`${import.meta.env.BASE_URL}images/hero-atmosphere.jpg`}
+              alt=""
+            />
+          </div>
           <div className="hero-atmosphere" aria-hidden="true">
             <div className="orb orb-a" />
             <div className="orb orb-b" />
